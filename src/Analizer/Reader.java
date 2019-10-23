@@ -7,7 +7,7 @@ import java.util.Scanner;
 class Reader {
     private Scanner sc;
 
-    public void openFile(String fileName) {
+    private void openFile(String fileName) {
         try {
             sc = new Scanner(new File(String.format("%s", fileName)));
         }
@@ -17,11 +17,11 @@ class Reader {
         }
     }
 
-    public void closeFile() {
+    private void closeFile() {
         sc.close();
     }
 
-    public String readFile(String fileName) {
+    String readFile(String fileName) {
         String str = "";
         openFile(fileName);
         while (sc.hasNext()) {

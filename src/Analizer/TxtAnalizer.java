@@ -4,12 +4,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
 
-class TxtAnalizer implements AnalizerInterface {
-    public String file = new String();
+public class TxtAnalizer implements AnalizerInterface {
     private Map<Character, Integer> charMap;
 
     @Override
-    public List<Map<Character, Integer>> analize(String file) {
+    public List<Map<Character, Integer>> analyze(String file) {
         this.charMap = new HashMap<>();
         mapFile(file);
         Map<Character, Integer> upperMap = new HashMap<>();

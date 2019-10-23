@@ -1,12 +1,10 @@
 package Analizer;
 import java.util.Map;
-import java.util.HashMap;
 import java.util.List;
-import java.util.ArrayList;
 
 class Writer {
 
-    String currentFileName;
+    private String currentFileName;
 
     public Writer(String fileName) {
         currentFileName = fileName;
@@ -14,7 +12,7 @@ class Writer {
 
     public void write() {
         TxtAnalizer txtAnalizer = new TxtAnalizer();
-        List<Map<Character, Integer>> mapList = txtAnalizer.analize(currentFileName);
+        List<Map<Character, Integer>> mapList = txtAnalizer.analyze(currentFileName);
         if (!mapList.isEmpty()) {
             for (Map<Character, Integer> map : mapList) {
                 Map.Entry<Character, Integer> entry = map.entrySet().iterator().next();

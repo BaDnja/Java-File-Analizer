@@ -1,5 +1,7 @@
-package Analizer;
+package Charts;
 
+import GUI.MainGUI;
+import Analizer.TxtAnalizer;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.CategoryPlot;
@@ -15,18 +17,7 @@ import java.util.Map;
 import java.util.Set;
 
 public class RecordChart extends JFrame {
-    RecordChart() {
-        /*setLayout(new CardLayout());
-        setVisible(true);
-        setSize(650, 500);
-        setResizable(false);
-
-        Toolkit toolkit = Toolkit.getDefaultToolkit();
-        Dimension screenSize = toolkit.getScreenSize();
-        int x = (screenSize.width - this.getWidth()) / 2;
-        int y = (screenSize.height - this.getHeight()) / 2;
-        this.setLocation(x, y);*/
-
+    public RecordChart() {
         showChart();
     }
 
@@ -35,7 +26,7 @@ public class RecordChart extends JFrame {
 
         // Add dynamic data
         TxtAnalizer txtAnalizer = new TxtAnalizer();
-        List<Map<Character, Integer>> mapList = txtAnalizer.analize(GUI.currentFile.toString());
+        List<Map<Character, Integer>> mapList = txtAnalizer.analyze(MainGUI.currentFile.toString());
         if (!mapList.isEmpty()) {
             for (Map<Character, Integer> map : mapList) {
                 Map.Entry<Character, Integer> entry = map.entrySet().iterator().next();
@@ -44,36 +35,32 @@ public class RecordChart extends JFrame {
                 if (Character.isUpperCase(entry.getKey())) {
                     while (iterator.hasNext()) {
                         Character key = (Character) iterator.next();
-                        Integer value = (Integer) map.get(key);
-                        System.out.println("UpperCase: " + key + " " + value);
+                        Integer value = map.get(key);
                         dcd.setValue(value, "UpperCase", key);
                     }
                 } else if (Character.isLowerCase(entry.getKey())) {
                     while (iterator.hasNext()) {
                         Character key = (Character) iterator.next();
-                        Integer value = (Integer) map.get(key);
-                        System.out.println("LowerCase: " + key + " " + value);
+                        Integer value = map.get(key);
                         dcd.setValue(value, "LowerCase", key);
                     }
                 } else if (Character.isDigit(entry.getKey())) {
                     while (iterator.hasNext()) {
                         Character key = (Character) iterator.next();
-                        Integer value = (Integer) map.get(key);
-                        System.out.println("Digit: " + key + " " + value);
+                        Integer value = map.get(key);
                         dcd.setValue(value, "Digit", key);
                     }
                 } else {
                     while (iterator.hasNext()) {
                         Character key = (Character) iterator.next();
-                        Integer value = (Integer) map.get(key);
-                        System.out.println("Special: " + key + " " + value);
-                        dcd.setValue(value, "Letter", key);
+                        Integer value = map.get(key);
+                        dcd.setValue(value, "Special", key);
                     }
                 }
             }
         }
 
-        JFreeChart chart = ChartFactory.createBarChart("File Statistics", "Character",
+        JFreeChart chart = ChartFactory.createBarChart3D("File Statistics", "Character",
                 "Value", dcd, PlotOrientation.VERTICAL, true, true, false);
 
         CategoryPlot plot = chart.getCategoryPlot();
