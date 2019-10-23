@@ -1,9 +1,11 @@
 package GUI;
 
+import Analizer.Writer;
 import Charts.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 class ChartSelection extends JFrame {
 
@@ -27,11 +29,13 @@ class ChartSelection extends JFrame {
         JButton lCChart = new JButton("LowerCase Chart");
         JButton dChart = new JButton("Digits Chart");
         JButton sChart = new JButton("Specials Chart");
+        JButton writeStats = new JButton("Write File Stats");
         add(fullChart);
         add(uCChart);
         add(lCChart);
         add(dChart);
         add(sChart);
+        add(writeStats);
 
         fullChart.addActionListener(actionEvent -> {
             Charts.RecordChart rc = new RecordChart();
@@ -51,6 +55,16 @@ class ChartSelection extends JFrame {
 
         sChart.addActionListener(actionEvent -> {
             SpecialsChart ucChart = new SpecialsChart();
+        });
+
+        writeStats.addActionListener(actionEvent -> {
+            try {
+                Analizer.Writer writer = new Writer(MainGUI.currentFile.toString());
+                writer.write();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
         });
     }
 

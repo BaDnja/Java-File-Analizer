@@ -10,14 +10,13 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.renderer.category.BarRenderer;
 import org.jfree.data.category.DefaultCategoryDataset;
 
-import javax.swing.*;
 import java.awt.*;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class DigitsChart extends JFrame {
+public class DigitsChart {
     public DigitsChart() {
         showChart();
     }

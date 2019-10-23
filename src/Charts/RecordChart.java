@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class RecordChart extends JFrame {
+public class RecordChart {
     public RecordChart() {
         showChart();
     }
