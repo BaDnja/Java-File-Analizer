@@ -17,12 +17,20 @@ public class Writer {
     private String fileName;
     private BufferedWriter writer;
 
+    /**
+     * @param file - name of the current file.
+     * @throws IOException - if file is missing.
+     */
     public Writer(String file) throws IOException {
         currentFileName = file;
         fileName = getFilePath(MainGUI.currentFile) + "\\stats_" + MainGUI.currentFile.getName();
         writer = new BufferedWriter(new FileWriter(fileName));
     }
 
+    /**
+     * @throws IOException - if file is missing.
+     * Method that writes statistics to a file.
+     */
     public void write() throws IOException {
         TxtAnalizer txtAnalizer = new TxtAnalizer();
         long startTime = System.currentTimeMillis();
@@ -67,14 +75,26 @@ public class Writer {
                 "Name of the file is stats_" + MainGUI.currentFile.getName());
     }
 
+    /**
+     * @param content - String representing the content to be written.
+     * @throws IOException - if file is missing.
+     */
     private void writeContent(String content) throws IOException {
         this.writer.write(content + "\n");
     }
 
+    /**
+     * @throws IOException - if file is missing.
+     * Closes writer to prevent memory leak.
+     */
     private void closeWriter() throws IOException {
         this.writer.close();
     }
 
+    /**
+     * @param file - current file as File.
+     * @return - String representing current file path.
+     */
     private String getFilePath(File file) {
         return file.getAbsoluteFile().getParent();
     }

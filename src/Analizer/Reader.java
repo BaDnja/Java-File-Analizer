@@ -7,6 +7,9 @@ import java.util.Scanner;
 class Reader {
     private Scanner sc;
 
+    /**
+     * @param fileName String - name of the file. Also void method.
+     */
     private void openFile(String fileName) {
         try {
             sc = new Scanner(new File(String.format("%s", fileName)));
@@ -17,10 +20,17 @@ class Reader {
         }
     }
 
+    /**
+     * No parameters. Void method.
+     */
     private void closeFile() {
         sc.close();
     }
 
+    /**
+     * @param fileName String - name of the file.
+     * @return File content as String
+     */
     String readFile(String fileName) {
         String str = "";
         openFile(fileName);
@@ -29,7 +39,7 @@ class Reader {
         }
         closeFile();
         if (str.length() == 0) {
-            System.out.println("\nFile is empty.");
+            System.out.println("\nFile is empty or not txt type.");
             System.exit(0);
         }
         return str;

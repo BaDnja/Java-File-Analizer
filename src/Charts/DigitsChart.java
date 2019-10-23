@@ -42,6 +42,7 @@ public class DigitsChart {
             }
         }
 
+        // Creating chart, plot and modifying it's properties.
         JFreeChart chart = ChartFactory.createBarChart3D("File Statistics", "Character",
                 "Value", dcd, PlotOrientation.VERTICAL, true, true, false);
 
