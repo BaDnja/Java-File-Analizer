@@ -1,5 +1,6 @@
 package Analizer;
 
+import javax.swing.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -39,7 +40,7 @@ class Reader {
         }
         closeFile();
         if (str.length() == 0) {
-            System.out.println("\nFile is empty or not txt type.");
+            JOptionPane.showMessageDialog(null, "File is empty or not txt type.");
             System.exit(0);
         }
         return str;

@@ -62,7 +62,7 @@ class ChartSelection extends JFrame {
                 Analizer.Writer writer = new Writer(MainGUI.currentFile.toString());
                 writer.write();
             } catch (IOException e) {
-                e.printStackTrace();
+                JOptionPane.showMessageDialog(null, "Internal error. Couldn't write to file");
             }
 
         });

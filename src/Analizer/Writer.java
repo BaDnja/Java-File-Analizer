@@ -53,16 +53,12 @@ public class Writer {
             for (Map<Character, Integer> map : mapList) {
                 Map.Entry<Character, Integer> entry = map.entrySet().iterator().next();
                 if (Character.isUpperCase(entry.getKey())) {
-                    //System.out.println("\nUpperCase: " + map);
                     writeContent("UpperCase Characters: " + map.toString() + "\n");
                 } else if (Character.isLowerCase(entry.getKey())) {
-                    //System.out.println("\nLowerCase: " + map);
                     writeContent("LowerCase Characters: " + map.toString() + "\n");
                 } else if (Character.isDigit(entry.getKey())) {
-                    //System.out.println("\nDigits: " + map);
                     writeContent("Digits: " + map.toString() + "\n");
                 } else {
-                    //System.out.println("\nSpecials: " + map);
                     writeContent("Special Characters: " + map.toString());
                 }
             }
@@ -77,7 +73,7 @@ public class Writer {
 
     /**
      * @param content - String representing the content to be written.
-     * @throws IOException - if file is missing.
+     *      * @throws IOException - if file is missing.
      */
     private void writeContent(String content) throws IOException {
         this.writer.write(content + "\n");
