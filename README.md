@@ -12,7 +12,7 @@ Three **main** sections are:
 
 Few things of what I learned are also mentioned in section above (Application Sections).
 
-  * Working with files.
-    - Reading from a file using a file dialog menu
-    - Dynamic Statistics Writing to an output file
-  * Creating user friendly and eye appealing charts which show analyze statistict to end user.
+  * **Working with files**.
+    - **Reading** from a file using a file dialog menu
+    - **Dynamic Statistics Writing** to an output file
+  * Creating _**user friendly**_ and eye _**appealing charts**_ which show _analyze statistict_ to end user.
